@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>User Form</title>
+</head>
+<body>
+
+    <form th:action="@{/user/add}" method="post" th:object="${user}">
+        <input type="text" th:field="*{u_firstname}" /><br>
+        <input type="text" th:field="*{u_lastname}" /><br>
+        <input type="text" th:field="*{u_name}" /><br>
+        <input type="text" th:field="*{u_password}" /><br>
+        <input type="text" th:field="*{u_created_at}" /><br>
+        <input type="text" th:field="*{u_update_at}" /><br>
+        <button type="submit">AddUser</button>
+    </form>
+
+</body>
+</html>
