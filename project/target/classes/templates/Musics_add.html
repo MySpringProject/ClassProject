@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Musics</title>
+</head>
+<body>
+
+<h2>Add A New Music</h2>
+<form th:action="@{/music/addmusic}" method="post" th:object="${music}">
+    Music Fun : <input type="text" th:field="*{mu_fun}" /><br><br>
+    Music Singer: <input type="text" th:field="*{mu_singer}" /><br><br>
+    Music Composer: <input type="text" th:field="*{mu_composer}" /><br><br>
+    Music Listen: <input type="text" th:field="*{mu_listen}" /><br><br>
+    Favorate: <input type="text" th:field="*{mu_is_fav}" /><br><br>
+    <button type="submit">Add User</button>
+</form>
+
+</body>
+</html>
