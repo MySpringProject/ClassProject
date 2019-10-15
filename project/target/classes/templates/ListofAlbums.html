@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>List Of Albums</title>
+</head>
+<body>
+<button><a th:href="@{/albums/add}">Add Album</a></button><br>
+<table border="1px">
+    <tr>
+        <th>ID</th>
+        <th>Album Number</th>
+        <th>Album Created date</th>
+        <th>Actions</th>
+    </tr>
+    <tr th:each="album: ${albums}">
+        <td th:text="${album.album_id}"></td>
+        <td th:text="${album.album_name}"></td>
+        <td th:text="${album.album_create}"></td>
+        <td>
+            <button style="padding: 3px; margin-right: 2px;"><a th:href="@{'/album/edit/' + ${album.album_id} }">Edit</a></button>
+            <form th:action="@{/album/delete/{id}(id = ${album.album_id}) }" method="post" style="display:inline;">
+                <button style="padding: 3px;" onclick="return confirm('Do you really want to delete this album?')">Delete</button>
+            </form>
+        </td>
+    </tr>
+
+</table>
+
+</body>
+</html>

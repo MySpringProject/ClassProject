@@ -8,9 +8,10 @@
 
     <h2>Add A New Album</h2>
     <form th:action="@{/albums/add}" method="post" th:object="${album}">
+        <input type="hidden" th:field="*{album_id}" />
         Album Name: <input type="text" th:field="*{album_name}" /><br><br>
         Album Create: <input type="text" th:field="*{album_create}" /><br><br>
-        <button type="submit">Add Album</button>
+        <button type="submit" style="padding: 5px;">Add Album</button><button style="padding: 5px;"><a th:href="@{/albums}">Back</a></button><br><br>
     </form>
 </body>
 </html>
