@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Albums</title>
+</head>
+<body>
+
+    <h2>Add A New Album</h2>
+    <form th:action="@{/albums/add}" method="post" th:object="${album}">
+        <input type="hidden" th:field="*{album_id}" />
+        Album Name: <input type="text" th:field="*{album_name}" /><br><br>
+        Album Create: <input type="text" th:field="*{album_create}" /><br><br>
+        <button type="submit" style="padding: 5px;">Add Album</button><button style="padding: 5px;"><a th:href="@{/albums}">Back</a></button><br><br>
+    </form>
+</body>
+</html>
