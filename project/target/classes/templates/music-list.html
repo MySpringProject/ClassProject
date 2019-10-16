@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button><a th:href="@{/music/add}">Add music</a></button><br>
+<table border="1px">
+    <tr>
+        <th>ID</th>
+        <th>mu_fun</th>
+        <th>Singer</th>
+        <th>Composer</th>
+        <th>Listens</th>
+        <th>Fevrates</th>
+        <th>Actions</th>
+
+    </tr>
+    <tr th:each="music: ${musics}">
+        <td th:text="${music.mu_id}"></td>
+        <td th:text="${music.mu_fun}"></td>
+        <td th:text="${music.mu_singer}"></td>
+        <td th:text="${music.mu_composer}"></td>
+        <td th:text="${music.mu_listen}"></td>
+        <td th:text="${music.mu_is_fav}"></td>
+        <td>
+            <button style="padding: 3px; margin-right: 2px;"><a th:href="@{'/music/edit/' + ${music.mu_id} }">Edit</a></button>
+            <form th:action="@{/music/delete/{id}(id = ${music.mu_id}) }" method="post" style="display:inline;">
+                <button style="padding: 3px;" onclick="return confirm('Do you really want to delete this music?')">Delete</button>
+            </form>
+        </td>
+    </tr>
+
+</table>
+
+
+</body>
+</html>

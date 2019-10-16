@@ -1,16 +1,21 @@
 package com.hu.cs.project.project.Model;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Musics {
-    @Column(name = "music_id")
+   // @Column(name = "music_id")
     private long mu_id;
     private String mu_fun;
     private String mu_singer;
     private String mu_composer;
     private String mu_listen;
     private int mu_is_fav;
+    private Set<Albums> albums;
+    private Set<Categories> categories;
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     public long getMu_id() {
@@ -60,4 +65,24 @@ public class Musics {
     public void setMu_is_fav(int mu_is_fav) {
         this.mu_is_fav = mu_is_fav;
     }
+
+
+    @ManyToMany
+    public Set<Albums> getAlbums() {
+        return albums;
+    }
+
+    public void setAlbums(Set<Albums> albums) {
+        this.albums = albums;
+    }
+
+    @ManyToMany
+    public Set<Categories> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(Set<Categories> categories) {
+        this.categories = categories;
+    }
+
 }

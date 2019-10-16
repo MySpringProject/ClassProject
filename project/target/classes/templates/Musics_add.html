@@ -7,7 +7,8 @@
 <body>
 
 <h2>Add A New Music</h2>
-<form th:action="@{/music/addmusic}" method="post" th:object="${music}">
+<form th:action="@{/music/add}" method="post" th:object="${music}">
+    <input type="hidden" th:field="*{id}">
     Music Fun : <input type="text" th:field="*{mu_fun}" /><br><br>
     Music Singer: <input type="text" th:field="*{mu_singer}" /><br><br>
     Music Composer: <input type="text" th:field="*{mu_composer}" /><br><br>

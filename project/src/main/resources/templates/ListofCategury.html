@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button><a th:href="@{/category/add}">Add Categury</a></button><br>
+<table border="1px">
+    <tr>
+        <th>ID</th>
+        <th>Collection</th>
+        <th>Actions</th>
+    </tr>
+    <tr th:each="categur: ${categurys}">
+        <td th:text="${categur.id}"></td>
+        <td th:text="${categur.ca_collection}"></td>
+        <td>
+            <button style="padding: 3px; margin-right: 2px;"><a th:href="@{'/category/edit/' + ${categur.id} }">Edit</a></button>
+            <form th:action="@{/category/delete/{id}(id = ${categur.id}) }" method="post" style="display:inline;">
+                <button style="padding: 3px;" onclick="return confirm('Do you really want to delete this album?')">Delete</button>
+            </form>
+        </td>
+    </tr>
+
+</table>
+</body>
+</html>

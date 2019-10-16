@@ -1,6 +1,7 @@
 package com.hu.cs.project.project.Model;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Albums {
@@ -8,6 +9,10 @@ public class Albums {
     private long album_id;
     private String album_name;
     private String album_create;
+    private Set<Categories> categories;
+    private Set<Musics> musics;
+
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -34,4 +39,26 @@ public class Albums {
     public void setAlbum_create(String album_create) {
         this.album_create = album_create;
     }
+
+    @JoinColumn(name = "album")
+    @OneToMany
+    public Set<Categories> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(Set<Categories> categories) {
+        this.categories = categories;
+    }
+
+    @ManyToMany
+    public Set<Musics> getMusics() {
+        return musics;
+    }
+
+    public void setMusics(Set<Musics> musics) {
+        this.musics = musics;
+    }
+
+
+
 }
